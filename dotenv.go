@@ -65,7 +65,7 @@ func parse(line string) (string, string, error) {
 	keyValuePair := regexp.MustCompile(`\s*=\s*`).Split(s, 2) // Split the line by the first '='
 	if len(keyValuePair) == 2 {
 		// Return key and value (remove comments if any)
-		value := strings.Split(keyValuePair[1], "#")[0]
+		value := strings.TrimSpace(strings.Split(keyValuePair[1], "#")[0])
 		// Remove quotes if any
 		if strings.HasPrefix(value, "\"") && strings.HasSuffix(value, "\"") {
 			value = value[1 : len(value)-1]
