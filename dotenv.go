@@ -39,7 +39,7 @@ func load(path string) error {
 		// Parse the line
 		k, v, err = parse(line)
 		if err != nil {
-			return errors.New(fmt.Sprintf("Invalid line: %s", line))
+			return fmt.Errorf("Invalid line: %s", line)
 		}
 		if k == "" || v == "" { // Skip empty lines
 			continue
